@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "types": [
+      "node",
+      "mocha"
+    ],
+    "outDir": "./lib",
+    "target": "es6",
+    "lib": [
+      "es7",
+      "dom"
+    ]
+  },
+  "include": [
+    "./src"
+  ],
+  "exclude": []
+}

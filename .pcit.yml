@@ -1,0 +1,22 @@
+language: node_js
+
+pipeline:
+
+  install:
+    command:
+      - npm install
+
+  script:
+    commands:
+      - npm test
+      - npx tsc
+
+  publish:
+    when:
+      event: ['tag']
+      matrix:
+        - NODE_VERSION: 11.2.0
+
+matrix:
+  - NODE_VERSION: 11.2.0
+  - NODE_VERSION: 10
