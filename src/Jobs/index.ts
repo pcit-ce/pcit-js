@@ -6,21 +6,23 @@ export class Jobs extends PCIT {
     return Request.request(this.entrypoint + '/jobs');
   }
 
-  find(job_id) {
+  find(job_id: number) {
     return Request.request(this.entrypoint + '/job/' + job_id);
   }
 
-  cancel(job_id) {
+  cancel(job_id: number) {
     return Request.request(
       this.entrypoint + '/job/' + job_id + '/cancel',
       'post',
+      true,
     );
   }
 
-  restart(job_id) {
+  restart(job_id: number) {
     return Request.request(
       this.entrypoint + '/job/' + job_id + '/restart',
       'post',
+      true,
     );
   }
 }

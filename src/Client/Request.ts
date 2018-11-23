@@ -2,9 +2,9 @@ export class Request {
   static request(
     url: string,
     method = 'get',
-    data = [],
     token: boolean = false,
-    header = [],
+    data: object = {},
+    header: object = {},
   ) {
     let request;
 
@@ -15,7 +15,15 @@ export class Request {
       request = require('node-fetch');
     }
 
-    return request(url)
+    let headers = token ? { Authorization: 'token ' + token } : {};
+
+    Object.assign(headers, header);
+
+    return request(url, {
+      method,
+      headers: headers ? headers : {},
+      body: JSON.stringify(data),
+    })
       .then(res => {
         return res.json();
       })

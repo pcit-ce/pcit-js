@@ -7,14 +7,13 @@ export class System extends PCIT {
   }
 
   getPending() {
-    return Request.request(this.entrypoint + '/ci/pending', 'GET', [], true);
+    return Request.request(this.entrypoint + '/ci/pending', 'GET', true);
   }
 
   getGitHubAppInstallationAddress(uid) {
     return Request.request(
       this.entrypoint + '/ci/github_app_installation/' + uid,
       'get',
-      [],
       true,
     );
   }
@@ -23,7 +22,6 @@ export class System extends PCIT {
     return Request.request(
       this.entrypoint + '/ci/github_app_settings/' + org_name,
       'get',
-      [],
       true,
     );
   }

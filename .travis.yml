@@ -1,0 +1,19 @@
+language: node_js
+
+cache: npm
+
+install: npm install
+
+script: npm test
+
+deploy:
+  provider: npm
+  email: khs1994@khs1994.com
+  api_key: $NPM_TOKEN
+  on:
+    tags: true
+    node: 11
+
+node_js:
+  - 11
+  - 10
