@@ -12,29 +12,26 @@ import { Status } from './Status';
 
 export class Repo extends PCIT {
   list() {
-    return Request.request(this.entrypoint + '/repos', 'get');
+    return Request.request(this.entrypoint + '/repos', 'get', this.token);
   }
 
-  listByOwner(username: string, git_type = 'github') {
-    return Request.request(
-      this.entrypoint + `/repos/${git_type}/${username}`,
-      'get',
-    );
+  listByOwner(git_type: string, username: string) {
+    return Request.request(this.entrypoint + `/repos/${git_type}/${username}`);
   }
 
-  find(username: string, repo_name: string, git_type = 'github') {
+  find(git_type: string, username: string, repo_name?: string) {
+    let repo_full_name = this.getRepoFullName(username, repo_name);
+
     return Request.request(
-      this.entrypoint + `/repo/${git_type}/${username}/${repo_name}`,
-      'get',
+      this.entrypoint + `/repo/${git_type}/${repo_full_name}`,
     );
   }
 
   active(username, repo_name) {
+    let repo_full_name = this.getRepoFullName(username, repo_name);
+
     return Request.request(
-      this.entrypoint +
-        '/repo/' +
-        [username, repo_name].join('/') +
-        '/activate',
+      this.entrypoint + '/repo/' + repo_full_name + '/activate',
       'post',
       this.token,
     );
