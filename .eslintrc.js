@@ -14,20 +14,21 @@ module.exports = {
   rules: {
     indent: [
       'error',
-      2, {
+      2,
+      {
         SwitchCase: 1,
         FunctionDeclaration: {
           parameters: 2,
-          body: 1
+          body: 1,
         },
         ObjectExpression: 1,
       },
     ],
     'linebreak-style': ['error', 'unix'],
-    'quotes': ['error', 'single'],
-    'semi': ['error', 'always'],
+    quotes: ['error', 'single'],
+    semi: ['error', 'always'],
     'no-console': 2,
     strict: 2,
-    'prettier/prettier': ['error', { trailingComma: 'all' }]
-  }
+    'prettier/prettier': ['error', { trailingComma: 'all' }],
+  },
 };

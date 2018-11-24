@@ -1,8 +1,8 @@
-const TOKEN = require('../PCITTest').TOKEN;
+import pcit = require('../../src');
 
-const ENTRYPOINT = require('../PCITTest').ENTRYPOINT;
+import { TOKEN, ENTRYPOINT } from '../PCITTest';
 
-const pcit = require('../../src');
+const repo = new pcit.Repo(TOKEN, ENTRYPOINT);
 
 const builds = new pcit.Builds(TOKEN, ENTRYPOINT);
 
@@ -12,5 +12,14 @@ describe('builds', () => {
     let result = await builds.find(100);
 
     console.log(result);
+  });
+
+  it('current', async () => {
+    try {
+      let result = await builds.current('github', 'pcit-ce/pcit2');
+      console.log(result);
+    } catch (e) {
+      console.log(e);
+    }
   });
 });

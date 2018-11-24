@@ -51,39 +51,39 @@ export class Repo extends PCIT {
     );
   }
 
-  branches() {
+  get branches() {
     return new Branches(this.token, this.entrypoint);
   }
 
-  caches() {
+  get caches() {
     return new Caches(this.token, this.entrypoint);
   }
 
-  crons() {
+  get crons() {
     return new Crons(this.token, this.entrypoint);
   }
 
-  env() {
+  get env() {
     return new Env(this.token, this.entrypoint);
   }
 
-  issues() {
+  get issues() {
     return new Issues(this.token, this.entrypoint);
   }
 
-  requests() {
+  get requests() {
     return new Requests(this.token, this.entrypoint);
   }
 
-  settings() {
+  get settings() {
     return new Settings(this.token, this.entrypoint);
   }
 
-  star() {
+  get star() {
     return new Star(this.token, this.entrypoint);
   }
 
-  status() {
+  get status() {
     return new Status(this.token, this.entrypoint);
   }
 }

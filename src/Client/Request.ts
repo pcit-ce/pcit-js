@@ -34,9 +34,14 @@ export class Request {
         if (res.ok) {
           return res.json();
         }
+
+        // console.log('not ok');
+
+        return Promise.reject(res);
       })
       .then(res => {
         return res;
-      });
+      })
+      .catch(e => Promise.reject(e));
   }
 }

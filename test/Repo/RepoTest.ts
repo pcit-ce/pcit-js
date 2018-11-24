@@ -1,7 +1,6 @@
-const pcit = require('../../src');
+import pcit = require('../../src');
 
-let TOKEN = require('../PCITTest').TOKEN;
-let ENTRYPOINT = require('../PCITTest').ENTRYPOINT;
+import { TOKEN, ENTRYPOINT } from '../PCITTest';
 
 const repo = new pcit.Repo(TOKEN, ENTRYPOINT);
 
@@ -16,9 +15,12 @@ describe('Repo', () => {
 
 describe('Settings', () => {
   it('update', async () => {
-    let result = await repo
-      .settings()
-      .update('pcit-ce/pcit', '', 'build_pushes', 0);
+    let result = await repo.settings.update(
+      'pcit-ce/pcit',
+      '',
+      'build_pushes',
+      0,
+    );
 
     console.log(result);
   });
