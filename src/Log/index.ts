@@ -10,7 +10,7 @@ export class Log extends PCIT {
     return Request.request(
       this.entrypoint + '/job/' + job_id + '/log',
       'delete',
-      true,
+      this.token,
     );
   }
 }

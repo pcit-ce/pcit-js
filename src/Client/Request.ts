@@ -1,8 +1,8 @@
 export class Request {
   static request(
     url: string,
-    method = 'get',
-    token: boolean = false,
+    method: string = 'get',
+    token: string = '',
     data: object = {},
     header: object = {},
   ) {
@@ -19,13 +19,21 @@ export class Request {
 
     Object.assign(headers, header);
 
+    let body = JSON.stringify(data);
+
+    body = body === '{}' ? null : body;
+
+    method = method.toUpperCase();
+
     return request(url, {
       method,
       headers: headers ? headers : {},
-      body: JSON.stringify(data),
+      body,
     })
       .then(res => {
-        return res.json();
+        if (res.ok) {
+          return res.json();
+        }
       })
       .then(res => {
         return res;

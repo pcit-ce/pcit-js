@@ -14,7 +14,7 @@ export class Jobs extends PCIT {
     return Request.request(
       this.entrypoint + '/job/' + job_id + '/cancel',
       'post',
-      true,
+      this.token,
     );
   }
 
@@ -22,7 +22,7 @@ export class Jobs extends PCIT {
     return Request.request(
       this.entrypoint + '/job/' + job_id + '/restart',
       'post',
-      true,
+      this.token,
     );
   }
 }

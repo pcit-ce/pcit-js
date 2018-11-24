@@ -1,12 +1,14 @@
 export class PCIT {
-  readonly entrypoint: string;
-  readonly token: string;
-
   constructor(
-    token: string = '',
-    entrypoint: string = 'https://ci.khs1994.com/api',
+    readonly token: string = '',
+    readonly entrypoint: string = 'https://ci.khs1994.com/api',
   ) {
-    this.entrypoint = entrypoint;
-    this.token = token;
+    if (entrypoint === '') {
+      this.entrypoint = '/api';
+    }
+  }
+
+  getRepoFullName(username: string, repo_name?: string) {
+    return repo_name ? `${username}/${repo_name}` : username;
   }
 }

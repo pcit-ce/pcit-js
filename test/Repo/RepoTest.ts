@@ -13,3 +13,13 @@ describe('Repo', () => {
     console.log(result);
   });
 });
+
+describe('Settings', () => {
+  it('update', async () => {
+    let result = await repo
+      .settings()
+      .update('pcit-ce/pcit', '', 'build_pushes', 0);
+
+    console.log(result);
+  });
+});

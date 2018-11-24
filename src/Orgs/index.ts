@@ -3,7 +3,7 @@ import { Request } from '../Client/Request';
 
 export class Orgs extends PCIT {
   list() {
-    return Request.request(this.entrypoint + '/orgs', 'get', true);
+    return Request.request(this.entrypoint + '/orgs', 'get', this.token);
   }
 
   find(git_type: string, org_name: string) {

@@ -7,23 +7,20 @@ export class Builds extends PCIT {
   }
 
   findByRepo(git_type: string, username: string, repo_name: string) {
+    let repo_full_name = this.getRepoFullName(username, repo_name);
+
     return Request.request(
-      this.entrypoint +
-        '/repo/' +
-        git_type +
-        '/' +
-        username +
-        '/' +
-        repo_name +
-        '/builds',
+      this.entrypoint + '/repo/' + git_type + '/' + repo_full_name + '/builds',
     );
   }
 
-  current(git_type: string, username: string, repo_name: string) {
+  current(git_type: string, username: string, repo_name?: string) {
+    let repo_full_name = this.getRepoFullName(username, repo_name);
+
     return Request.request(
       this.entrypoint +
         '/repo/' +
-        [git_type, username, repo_name, 'build', 'current'].join('/'),
+        [git_type, repo_full_name, 'build', 'current'].join('/'),
     );
   }
 
@@ -35,7 +32,7 @@ export class Builds extends PCIT {
     return Request.request(
       this.entrypoint + '/build/' + build_id,
       'post',
-      true,
+      this.token,
     );
   }
 
@@ -43,7 +40,7 @@ export class Builds extends PCIT {
     return Request.request(
       this.entrypoint + '/build/' + build_id + '/restart',
       'post',
-      true,
+      this.token,
     );
   }
 }

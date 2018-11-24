@@ -36,7 +36,7 @@ export class Repo extends PCIT {
         [username, repo_name].join('/') +
         '/activate',
       'post',
-      true,
+      this.token,
     );
   }
 
@@ -47,43 +47,43 @@ export class Repo extends PCIT {
         [username, repo_name].join('/') +
         '/deactivate',
       'post',
-      true,
+      this.token,
     );
   }
 
   branches() {
-    return new Branches(this.entrypoint, this.token);
+    return new Branches(this.token, this.entrypoint);
   }
 
   caches() {
-    return new Caches(this.entrypoint, this.token);
+    return new Caches(this.token, this.entrypoint);
   }
 
   crons() {
-    return new Crons(this.entrypoint, this.token);
+    return new Crons(this.token, this.entrypoint);
   }
 
   env() {
-    return new Env(this.entrypoint, this.token);
+    return new Env(this.token, this.entrypoint);
   }
 
   issues() {
-    return new Issues(this.entrypoint, this.token);
+    return new Issues(this.token, this.entrypoint);
   }
 
   requests() {
-    return new Requests(this.entrypoint, this.token);
+    return new Requests(this.token, this.entrypoint);
   }
 
   settings() {
-    return new Settings(this.entrypoint, this.token);
+    return new Settings(this.token, this.entrypoint);
   }
 
   star() {
-    return new Star(this.entrypoint, this.token);
+    return new Star(this.token, this.entrypoint);
   }
 
   status() {
-    return new Status(this.entrypoint, this.token);
+    return new Status(this.token, this.entrypoint);
   }
 }

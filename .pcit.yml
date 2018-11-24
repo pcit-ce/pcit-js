@@ -24,5 +24,6 @@ pipeline:
         - NODE_VERSION: 11
 
 matrix:
-  - NODE_VERSION: 11
-  - NODE_VERSION: 10
+  NODE_VERSION:
+    - 11
+    - 10
