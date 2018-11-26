@@ -1,15 +1,19 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "types": [
-      "node",
-      "mocha"
-    ],
-    "outDir": "../../node_modules/@pcit/pcit-js/lib",
+    "outDir": "lib",
     "target": "es6",
+    "strict": true,
+    "noUnusedLocals": true,
+    "removeComments": true,
+    "rootDir": "./src",
     "lib": [
       "es7",
       "dom"
+    ],
+    "types": [
+      "node",
+      "mocha"
     ]
   },
   "include": [

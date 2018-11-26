@@ -10,7 +10,7 @@ export class System extends PCIT {
     return Request.request(this.entrypoint + '/ci/pending', 'GET', this.token);
   }
 
-  getGitHubAppInstallationAddress(uid) {
+  getGitHubAppInstallationAddress(uid: number) {
     return Request.request(
       this.entrypoint + '/ci/github_app_installation/' + uid,
       'get',
@@ -18,7 +18,7 @@ export class System extends PCIT {
     );
   }
 
-  getGitHubAppSettingsAddress(org_name) {
+  getGitHubAppSettingsAddress(org_name: string) {
     return Request.request(
       this.entrypoint + '/ci/github_app_settings/' + org_name,
       'get',

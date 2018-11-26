@@ -23,3 +23,17 @@ const repo = pcit.Repo(TOKEN, 'https://ci.domain.com/api');
   console.log(result);
 })()
 ```
+
+## dev
+
+### PCIT 开发环境
+
+```bash
+$ npm run dev-build
+```
+
+### PCIT 小程序开发环境
+
+```bash
+$ npm run dev-miniprogram
+```

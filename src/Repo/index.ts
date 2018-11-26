@@ -27,7 +27,7 @@ export class Repo extends PCIT {
     );
   }
 
-  active(username, repo_name) {
+  active(username: string, repo_name: string) {
     let repo_full_name = this.getRepoFullName(username, repo_name);
 
     return Request.request(
@@ -37,7 +37,7 @@ export class Repo extends PCIT {
     );
   }
 
-  deactivate(username, repo_name) {
+  deactivate(username: string, repo_name: string) {
     return Request.request(
       this.entrypoint +
         '/repo/' +

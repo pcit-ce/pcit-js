@@ -8,10 +8,10 @@
     "pcit-ce"
   ],
   "dependencies": {
-    "@types/node": "^10.12.10",
     "node-fetch": "^2.3.0"
   },
   "devDependencies": {
+    "@types/node": "^10.12.10",
     "@types/mocha": "^5.2.5",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.9.0",
@@ -27,7 +27,10 @@
   "scripts": {
     "test": "mocha -r ts-node/register ./test/**/*.ts",
     "prettier": "npx prettier --write ./**/*.ts",
-    "eslint": "npx eslint --fix ./**/*.ts"
+    "eslint": "npx eslint --fix ./**/*.ts",
+    "prepublish": "npx tsc",
+    "dev-build": "tsc --outDir ../pcit/frontend/node_modules/@pcit/pcit-js/lib",
+    "dev-miniprogram": "tsc --outDir ../pcit/miniprogram/node_modules/@pcit/pcit-js/lib"
   },
   "directories": {
     "lib": "./lib"

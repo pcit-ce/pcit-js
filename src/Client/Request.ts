@@ -6,31 +6,65 @@ export class Request {
     data: object = {},
     header: object = {},
   ) {
-    let request;
+    let request: any;
+    let is_wx: boolean = false;
 
     try {
-      typeof fetch === 'function';
-      request = fetch;
+      if (typeof fetch === 'function') {
+        request = fetch;
+      } else {
+        throw Error('not support fetch');
+      }
     } catch (e) {
-      request = require('node-fetch');
+      try {
+        let fetch = require('node-fetch');
+        if (typeof fetch === 'function') {
+          request = fetch;
+        } else {
+          throw Error('is not node env');
+        }
+      } catch (e) {
+        is_wx = true;
+      }
     }
 
     let headers = token ? { Authorization: 'token ' + token } : {};
 
     Object.assign(headers, header);
 
-    let body = JSON.stringify(data);
+    let body: any = JSON.stringify(data);
 
     body = body === '{}' ? null : body;
 
     method = method.toUpperCase();
 
+    if (is_wx) {
+      // return wx.request({
+      //
+      // });
+      return new Promise((resolve, reject) => {
+        // @ts-ignore
+        wx.request({
+          url,
+          method,
+          data: body,
+          header: headers,
+          success(res: any) {
+            resolve(res);
+          },
+          fail(e: any) {
+            reject(e);
+          },
+        });
+      });
+    }
+
     return request(url, {
       method,
-      headers: headers ? headers : {},
+      headers,
       body,
     })
-      .then(res => {
+      .then((res: any) => {
         if (res.ok) {
           return res.json();
         }
@@ -39,9 +73,9 @@ export class Request {
 
         return Promise.reject(res);
       })
-      .then(res => {
+      .then((res: any) => {
         return res;
       })
-      .catch(e => Promise.reject(e));
+      .catch((e: any) => Promise.reject(e));
   }
 }
