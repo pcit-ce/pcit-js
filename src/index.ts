@@ -1,8 +1,9 @@
 import { Builds } from './Builds';
 import { Jobs } from './Jobs';
+import { Log } from './Log';
+import { Orgs } from './Orgs';
 import { Repo } from './Repo';
 import { System } from './System';
 import { User } from './User';
-import { Orgs } from './Orgs';
 
-export = { Builds, Jobs, Repo, System, User, Orgs };
+export = { Builds, Jobs, Log, Repo, System, User, Orgs };

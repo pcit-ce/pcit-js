@@ -7,6 +7,8 @@ export class Settings extends PCIT {
 
     return Request.request(
       this.entrypoint + `/repo/${repo_full_name}/settings`,
+      'get',
+      this.token,
     );
   }
 

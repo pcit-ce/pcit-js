@@ -3,7 +3,11 @@ import { Request } from '../Client/Request';
 
 export class System extends PCIT {
   getOauthClientId() {
-    return Request.request(this.entrypoint + '/ci/oauth_client_id');
+    return Request.request(
+      this.entrypoint + '/ci/oauth_client_id',
+      'get',
+      this.token,
+    );
   }
 
   getPending() {

@@ -11,8 +11,8 @@
     "node-fetch": "^2.3.0"
   },
   "devDependencies": {
-    "@types/node": "^10.12.10",
     "@types/mocha": "^5.2.5",
+    "@types/node": "^10.12.10",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.9.0",
     "eslint-config-prettier": "^3.3.0",
@@ -21,6 +21,7 @@
     "prettier": "^1.15.2",
     "ts-loader": "^5.3.0",
     "ts-node": "^7.0.1",
+    "typescript": "^3.1.6",
     "webpack": "^4.26.0",
     "webpack-cli": "^3.1.2"
   },
@@ -58,6 +59,7 @@
     "url": "https://github.com/pcit-ce/pcit-js/issues"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }

@@ -2,7 +2,7 @@ import pcit = require('../../src');
 
 import { TOKEN, ENTRYPOINT } from '../PCITTest';
 
-const repo = new pcit.Repo(TOKEN, ENTRYPOINT);
+// const repo = new pcit.Repo(TOKEN, ENTRYPOINT);
 
 const builds = new pcit.Builds(TOKEN, ENTRYPOINT);
 
@@ -10,6 +10,17 @@ describe('builds', () => {
   // @ts-ignore
   it('find', async () => {
     let result = await builds.find(100);
+
+    console.log(result);
+  });
+
+  it('find_by_repo', async () => {
+    let result = await builds.findByRepo(
+      'github',
+      'pcit-ce/pcit',
+      undefined,
+      true,
+    );
 
     console.log(result);
   });

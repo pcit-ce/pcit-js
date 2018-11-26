@@ -6,11 +6,22 @@ export class Builds extends PCIT {
     return Request.request(this.entrypoint + '/builds', 'get');
   }
 
-  findByRepo(git_type: string, username: string, repo_name: string) {
+  findByRepo(
+    git_type: string,
+    username: string,
+    repo_name?: string,
+    pr_only: boolean = false,
+  ) {
     let repo_full_name = this.getRepoFullName(username, repo_name);
 
     return Request.request(
-      this.entrypoint + '/repo/' + git_type + '/' + repo_full_name + '/builds',
+      this.entrypoint +
+        '/repo/' +
+        git_type +
+        '/' +
+        repo_full_name +
+        '/builds' +
+        (pr_only ? '?type=pr' : ''),
     );
   }
 

@@ -3,7 +3,13 @@ import { Request } from '../Client/Request';
 
 export class Env extends PCIT {
   list(username: string, repo_name?: string) {
-    return Request.request(this.entrypoint + `/repo/${username}/${repo_name}`);
+    let repo_full_name = this.getRepoFullName(username, repo_name);
+
+    return Request.request(
+      this.entrypoint + `/repo/${repo_full_name}/env_vars`,
+      'get',
+      this.token,
+    );
   }
 
   create(
