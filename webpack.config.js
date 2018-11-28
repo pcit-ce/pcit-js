@@ -1,19 +1,19 @@
 const path = require('path');
 
 let config = {
-  mode: 'development',
+  mode: 'production',
   entry: path.resolve('./src/index.ts'),
   module: {
     rules: [
       {
         test: /\.ts$/,
         use: 'ts-loader',
-      }
-    ]
+      },
+    ],
   },
   resolve: {
-    extensions: ['.ts', '.js']
-  }
+    extensions: ['.ts', '.js'],
+  },
 };
 
 module.exports = (env, argv) => {

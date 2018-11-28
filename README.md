@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/@pcit/pcit-js.svg)](https://www.npmjs.com/package/@pcit/pcit-js)
 
-* https://github.com/pcit-ce/pcit-js
+- https://github.com/pcit-ce/pcit-js
 
 ## Usage
 
@@ -10,43 +10,53 @@
 $ npm i --save @pcit/pcit-js
 ```
 
+### Node.js
+
 ```js
+// you can save token to system env NODE_PCIT_TOKEN
+const TOKEN = process.env.NODE_PCIT_TOKEN || 'xxx';
+
 // get module
 const pcit = require('@pcit/pcit-js');
 
-const TOKEN = 'xxx';
-
 // get repo instance
-const repo = pcit.Repo(TOKEN, 'https://ci.domain.com/api');
+const pcit_repo = new pcit.Repo(TOKEN, 'https://ci.domain.com/api');
 
 // call repo find method
-(async ()=>{
-  let result = await repo.find('pcit-ce', 'pcit');
+(async () => {
+  let result = await pcit_repo.find('pcit-ce', 'pcit');
 
   console.log(result);
-})()
+})();
 ```
 
 or
 
 ```js
+// you can save token to system env NODE_PCIT_TOKEN
+const TOKEN = process.env.NODE_PCIT_TOKEN || 'xxx';
+
 // get pcit class
 const PCIT = require('@pcit/pcit-js').PCIT;
-
-const TOKEN = 'xxx';
 
 // get pcit instance
 const pcit = new PCIT(TOKEN, 'https://ci.domain.com/api');
 
 // get repo instance
-const repo = pcit.repo;
+const pcit_repo = pcit.repo;
 
 // call repo find method
-(async ()=>{
-  let result = await repo.find('pcit-ce', 'pcit');
+(async () => {
+  let result = await pcit_repo.find('pcit-ce', 'pcit');
 
   console.log(result);
-})()
+})();
+```
+
+### TypeScript
+
+```bash
+import pcit from '@pcit/pcit-js';
 ```
 
 ## dev

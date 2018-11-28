@@ -1,6 +1,6 @@
 {
   "name": "@pcit/pcit-js",
-  "version": "18.12.0-beta.2",
+  "version": "18.12.0-beta.3",
   "description": "PCIT JS SDK",
   "main": "./lib/index.js",
   "keywords": [
@@ -29,7 +29,8 @@
     "test": "mocha -r ts-node/register ./test/**/*.ts",
     "prettier": "npx prettier --write ./**/*.ts",
     "eslint": "npx eslint --fix ./**/*.ts",
-    "prepublish": "npx tsc",
+    "prepare": "npx rimraf lib",
+    "prepublishOnly": "npx tsc",
     "dev-build": "tsc --outDir ../pcit/frontend/node_modules/@pcit/pcit-js/lib",
     "dev-miniprogram": "tsc --outDir ../pcit/miniprogram/node_modules/@pcit/pcit-js/lib"
   },
