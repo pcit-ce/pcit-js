@@ -7,6 +7,14 @@ export class User extends PCIT {
     return new BetaFeatures(this.token, this.entrypoint);
   }
 
+  getToken(git_type: string, username: string, password: string) {
+    return Request.request(this.entrypoint + `/user/token`, 'post', undefined, {
+      git_type,
+      username,
+      password,
+    });
+  }
+
   findByCurrent() {
     return Request.request(this.entrypoint + '/user', 'get', this.token);
   }

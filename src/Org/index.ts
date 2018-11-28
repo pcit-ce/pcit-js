@@ -1,7 +1,7 @@
 import { PCIT } from '../PCIT';
 import { Request } from '../Client/Request';
 
-export class Orgs extends PCIT {
+export class Org extends PCIT {
   list() {
     return Request.request(this.entrypoint + '/orgs', 'get', this.token);
   }

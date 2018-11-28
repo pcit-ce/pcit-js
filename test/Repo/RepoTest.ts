@@ -1,13 +1,11 @@
-import pcit = require('../../src');
+import pcit from '../PCITTest';
 
-import { TOKEN, ENTRYPOINT } from '../PCITTest';
-
-const repo = new pcit.Repo(TOKEN, ENTRYPOINT);
+const repo = pcit.repo;
 
 describe('Repo', () => {
   // @ts-ignore
   it('find', async () => {
-    let result = await repo.find('pcit-ce', 'pcit');
+    let result = await repo.find('github', 'pcit-ce', 'pcit');
 
     console.log(result);
   });

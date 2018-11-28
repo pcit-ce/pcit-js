@@ -1,13 +1,8 @@
-import pcit = require('../../src');
+import pcit from '../PCITTest';
 
-import { TOKEN, ENTRYPOINT } from '../PCITTest';
-
-// const repo = new pcit.Repo(TOKEN, ENTRYPOINT);
-
-const builds = new pcit.Builds(TOKEN, ENTRYPOINT);
+const builds = pcit.builds;
 
 describe('builds', () => {
-  // @ts-ignore
   it('find', async () => {
     let result = await builds.find(100);
 

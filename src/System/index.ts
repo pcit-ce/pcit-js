@@ -29,4 +29,8 @@ export class System extends PCIT {
       this.token,
     );
   }
+
+  about() {
+    return Request.request(this.entrypoint + '/ci/about');
+  }
 }

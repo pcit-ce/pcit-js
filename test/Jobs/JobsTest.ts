@@ -1,8 +1,6 @@
-import { TOKEN, ENTRYPOINT } from '../PCITTest';
+import pcit from '../PCITTest';
 
-import { Jobs } from '../../src/Jobs';
-
-const jobs = new Jobs(TOKEN, ENTRYPOINT);
+const jobs = pcit.jobs;
 
 describe('jobs', () => {
   // @ts-ignore

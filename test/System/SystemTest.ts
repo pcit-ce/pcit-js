@@ -1,8 +1,6 @@
-import pcit = require('../../src');
+import pcit from '../PCITTest';
 
-import { TOKEN, ENTRYPOINT } from '../PCITTest';
-
-const system = new pcit.System(TOKEN, ENTRYPOINT);
+const system = pcit.system;
 
 describe('system', () => {
   it('getGitHubAppSettingsAddress', async () => {
