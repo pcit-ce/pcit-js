@@ -15,7 +15,7 @@ export class User extends PCIT {
     });
   }
 
-  findByCurrent() {
+  current() {
     return Request.request(this.entrypoint + '/user', 'get', this.token);
   }
 

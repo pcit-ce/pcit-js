@@ -2,7 +2,10 @@ const path = require('path');
 
 let config = {
   mode: 'production',
-  entry: path.resolve('./src/index.ts'),
+  entry: path.resolve('./src/pcit.min.ts'),
+  output: {
+    filename: 'pcit.min.js',
+  },
   module: {
     rules: [
       {

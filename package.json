@@ -1,8 +1,9 @@
 {
   "name": "@pcit/pcit-js",
-  "version": "18.12.0-beta.3",
+  "version": "18.12.0-beta.4",
   "description": "PCIT JS SDK",
   "main": "./lib/index.js",
+  "types": "./src/pcit.d.ts",
   "keywords": [
     "pcit",
     "pcit-ce"
@@ -29,10 +30,15 @@
     "test": "mocha -r ts-node/register ./test/**/*.ts",
     "prettier": "npx prettier --write ./**/*.ts",
     "eslint": "npx eslint --fix ./**/*.ts",
-    "prepare": "npx rimraf lib",
-    "prepublishOnly": "npx tsc",
+    "prepare": "npx rimraf lib dist",
+    "prepublishOnly": "npm run webpack-pro && npx tsc",
     "dev-build": "tsc --outDir ../pcit/frontend/node_modules/@pcit/pcit-js/lib",
-    "dev-miniprogram": "tsc --outDir ../pcit/miniprogram/node_modules/@pcit/pcit-js/lib"
+    "dev-miniprogram": "tsc --outDir ../pcit/miniprogram/node_modules/@pcit/pcit-js/lib",
+    "postinstall": "npm run prepublishOnly",
+    "prewebpack-pro": "npm run prepare",
+    "prewebpack-dev": "npm run prepare",
+    "webpack-pro": "npx webpack --mode=production",
+    "webpack-dev": "npx webpack --mode=development"
   },
   "directories": {
     "lib": "./lib"
@@ -40,7 +46,8 @@
   "files": [
     "lib",
     "src",
-    ".pcit.yml"
+    ".pcit.yml",
+    "dist"
   ],
   "author": {
     "name": "khs1994",

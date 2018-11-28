@@ -1,16 +1,45 @@
 # PCIT JS SDK
 
 [![npm](https://img.shields.io/npm/v/@pcit/pcit-js.svg)](https://www.npmjs.com/package/@pcit/pcit-js)
+[![install size](https://packagephobia.now.sh/badge?p=@pcit/pcit-js)](https://packagephobia.now.sh/result?p=@pcit/pcit-js)
 
 - https://github.com/pcit-ce/pcit-js
 
 ## Usage
 
-```bash
-$ npm i --save @pcit/pcit-js
+PCIT-JS SDK 支持在浏览器、Node.js、微信小程序端运行。
+
+### Browers
+
+```html
+// https://ci.domain.com/demo.html
+
+<script src="https://lib.baomitu.com/js-cookie/2.2.0/js.cookie.min.js"></script>
+<script src='https://unpkg.com/@pcit/pcit-js@18.12.0-beta.4/dist/pcit.min.js'></script>
+
+<script>
+// get token from cookie
+// TODO please get git_type from url
+const git_type = 'github';
+const TOKEN = Cookies.get(git_type + '_api_token');
+
+const pcit = new PCIT(TOKEN,'');
+
+const pcit_user = pcit.user;
+
+(async ()=>{
+  const result = await pcit_user.current();
+  // TODO
+  console.log(result);
+})();
+</script>
 ```
 
 ### Node.js
+
+```bash
+$ npm i --save @pcit/pcit-js
+```
 
 ```js
 // you can save token to system env NODE_PCIT_TOKEN
@@ -54,6 +83,10 @@ const pcit_repo = pcit.repo;
 ```
 
 ### TypeScript
+
+```bash
+$ npm i --save @pcit/pcit-js
+```
 
 ```bash
 import pcit from '@pcit/pcit-js';
