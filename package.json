@@ -1,6 +1,6 @@
 {
   "name": "@pcit/pcit-js",
-  "version": "18.12.0-beta.6",
+  "version": "18.12.0-beta.7",
   "description": "PCIT JS SDK",
   "main": "./lib/index.js",
   "types": "./src/pcit.d.ts",

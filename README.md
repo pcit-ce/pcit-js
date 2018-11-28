@@ -15,7 +15,7 @@ PCIT-JS SDK 支持在浏览器、Node.js、微信小程序端运行。
 // https://ci.domain.com/demo.html
 
 <script src="https://lib.baomitu.com/js-cookie/2.2.0/js.cookie.min.js"></script>
-<script src="https://unpkg.com/@pcit/pcit-js@18.12.0-beta.4/dist/pcit.min.js"></script>
+<script src="https://unpkg.com/@pcit/pcit-js@18.12.0-beta.6/dist/pcit.min.js"></script>
 
 <script>
   // get token from cookie
