@@ -17,6 +17,7 @@ export class Request {
       }
     } catch (e) {
       try {
+        // @ts-ignore
         let fetch = require('node-fetch');
         if (typeof fetch === 'function') {
           request = fetch;

@@ -1,10 +1,10 @@
-import { Builds } from './Builds';
-import { Jobs } from './Jobs';
-import { Log } from './Log';
-import { Org } from './Org';
-import { Repo } from './Repo';
-import { System } from './System';
-import { User } from './User';
+import { Builds } from './Builds/index';
+import { Jobs } from './Jobs/index';
+import { Log } from './Log/index';
+import { Org } from './Org/index';
+import { Repo } from './Repo/index';
+import { System } from './System/index';
+import { User } from './User/index';
 
 class PCIT {
   public builds: Builds;
