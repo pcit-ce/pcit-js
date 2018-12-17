@@ -5,6 +5,6 @@ import PCIT from '../src/index';
 
 const pcit = new PCIT(TOKEN, ENTRYPOINT);
 
-pcit.builds.find(100).then(res => console.log(res));
+pcit.builds.find(100).then((res: any) => console.log(res));
 
 // deno ./DenoTest.ts --allow-net

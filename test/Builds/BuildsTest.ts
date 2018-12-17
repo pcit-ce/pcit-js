@@ -20,9 +20,22 @@ describe('builds', () => {
     console.log(result);
   });
 
+  it('find_by_repo_limit', async () => {
+    let result = await builds.findByRepo(
+      'github',
+      'pcit-ce/pcit',
+      undefined,
+      true,
+      292,
+      1,
+    );
+
+    console.log(result);
+  });
+
   it('current', async () => {
     try {
-      let result = await builds.current('github', 'pcit-ce/pcit2');
+      let result = await builds.current('github', 'pcit-ce/pcit');
       console.log(result);
     } catch (e) {
       console.log(e);
