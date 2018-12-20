@@ -27,16 +27,16 @@
     "webpack-cli": "^3.1.2"
   },
   "scripts": {
-    "pretest": "npx tsc",
+    "cleanup": "npx rimraf lib dist types",
+    "pretest": "npm run cleanup ; npx tsc",
     "test": "mocha -r ts-node/register ./test/**/*.ts",
     "prettier": "npx prettier --write ./**/*.ts ./*.md",
     "eslint": "npx eslint --fix ./**/*.ts",
-    "prepare": "npx rimraf lib dist types",
     "prepublishOnly": "npm run webpack-pro && npx tsc",
     "dev-build": "tsc --outDir ../pcit/frontend/node_modules/@pcit/pcit-js/lib",
     "dev-miniprogram": "tsc --outDir ../pcit/miniprogram/client/node_modules/@pcit/pcit-js/lib",
-    "prewebpack-pro": "npm run prepare",
-    "prewebpack-dev": "npm run prepare",
+    "prewebpack-pro": "npm run cleanup",
+    "prewebpack-dev": "npm run cleanup",
     "webpack-pro": "npx webpack-cli --mode=production",
     "webpack-dev": "npx webpack-cli --mode=development"
   },

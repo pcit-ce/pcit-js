@@ -9,6 +9,7 @@
     "declaration": true,
     "declarationDir": "./types",
     "rootDir": "./src",
+    "newLine": "LF",
     "lib": [
       "es7",
       "dom"
