@@ -3,6 +3,7 @@ language: node_js
 pipeline:
 
   install:
+    image: khs1994/node:git
     command:
       - npm install --registry=https://registry.npm.taobao.org
 
@@ -12,10 +13,27 @@ pipeline:
       - npm test
       - npx tsc
 
+  deploy_next:
+    # environment:
+    settings:
+      provider: npm
+      api_key: ${NPM_TOKEN}
+      email: khs1994@khs1994.com
+      tag: next
+      # registry:
+    email: khs1994@khs1994.com
+    when:
+      event: ['push']
+      status: success
+      matrix:
+        - NODE_VERSION: 11
+
   deploy:
     # environment:
-    #   - NPM_TOKEN=""
-    provider: npm
+    settings:
+      provider: npm
+      api_key: ${NPM_TOKEN}
+      email: khs1994@khs1994.com
     email: khs1994@khs1994.com
     when:
       event: ['tag']

@@ -1,6 +1,6 @@
 {
   "name": "@pcit/pcit-js",
-  "version": "18.12.0-beta.7",
+  "version": "18.12.0-beta.8",
   "description": "PCIT JS SDK",
   "main": "./lib/index.js",
   "types": "./types/index.d.ts",
@@ -9,7 +9,8 @@
     "pcit-ce"
   ],
   "dependencies": {
-    "node-fetch": "^2.3.0"
+    "node-fetch": "^2.3.0",
+    "wx-fetch": "github:khs1994/wx-fetch"
   },
   "devDependencies": {
     "@types/mocha": "^5.2.5",

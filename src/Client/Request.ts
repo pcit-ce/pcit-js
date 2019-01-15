@@ -7,7 +7,6 @@ export class Request {
     header: object = {},
   ) {
     let request: any;
-    let is_wx: boolean = false;
 
     try {
       if (typeof fetch === 'function') {
@@ -25,7 +24,8 @@ export class Request {
           throw Error('is not node env');
         }
       } catch (e) {
-        is_wx = true;
+        let fetch = require('wx-fetch');
+        request = fetch;
       }
     }
 
@@ -38,27 +38,6 @@ export class Request {
     body = body === '{}' ? null : body;
 
     method = method.toUpperCase();
-
-    if (is_wx) {
-      // return wx.request({
-      //
-      // });
-      return new Promise((resolve, reject) => {
-        // @ts-ignore
-        wx.request({
-          url,
-          method,
-          data: body,
-          header: headers,
-          success(res: any) {
-            resolve(res);
-          },
-          fail(e: any) {
-            reject(e);
-          },
-        });
-      });
-    }
 
     return request(url, {
       method,

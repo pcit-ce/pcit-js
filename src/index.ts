@@ -33,6 +33,8 @@ class PCIT {
   }
 }
 
-export { Builds, Jobs, Log, Repo, System, User, Org, PCIT };
+module.exports = { Builds, Jobs, Log, Repo, System, User, Org, PCIT };
 
 export default PCIT;
+
+export { Builds, Jobs, Log, Repo, System, User, Org }
