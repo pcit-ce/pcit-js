@@ -1,7 +1,7 @@
-import { PCIT } from '../PCIT';
-import { Request } from '../Client/Request';
+import PCITAbstract from '../PCITAbstract';
+import Request from '../Client/Request';
 
-export class Star extends PCIT {
+export default class Star extends PCITAbstract {
   star(username: string, repo_name?: string) {
     let repo_full_name = this.getRepoFullName(username, repo_name);
 

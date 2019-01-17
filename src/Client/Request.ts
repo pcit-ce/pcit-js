@@ -1,4 +1,4 @@
-export class Request {
+export default class Request {
   static request(
     url: string,
     method: string = 'get',

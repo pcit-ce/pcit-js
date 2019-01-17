@@ -1,7 +1,7 @@
-import { Request } from '../Client/Request';
-import { PCIT } from '../PCIT';
+import Request from '../Client/Request';
+import PCITAbstract from '../PCITAbstract';
 
-export class Jobs extends PCIT {
+export default class Jobs extends PCITAbstract {
   list() {
     return Request.request(this.entrypoint + '/jobs');
   }

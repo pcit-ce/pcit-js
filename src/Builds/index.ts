@@ -1,7 +1,7 @@
-import { PCIT } from '../PCIT';
-import { Request } from '../Client/Request';
+import PCITAbstract from '../PCITAbstract';
+import Request from '../Client/Request';
 
-export class Builds extends PCIT {
+export default class Builds extends PCITAbstract {
   list(before: number = 0, limit: number = 25) {
     return Request.request(
       this.entrypoint + `/builds?before=${before}&limit=${limit}`,

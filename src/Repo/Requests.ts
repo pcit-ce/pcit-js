@@ -1,7 +1,7 @@
-import { PCIT } from '../PCIT';
-import { Request } from '../Client/Request';
+import PCITAbstract from '../PCITAbstract';
+import Request from '../Client/Request';
 
-export class Requests extends PCIT {
+export default class Requests extends PCITAbstract {
   list(
     git_type: string,
     username: string,

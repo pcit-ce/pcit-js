@@ -1,5 +1,5 @@
-import { PCIT } from '../PCIT';
-export declare class System extends PCIT {
+import PCITAbstract from '../PCITAbstract';
+export default class System extends PCITAbstract {
     getOauthClientId(): any;
     getPending(): any;
     getGitHubAppInstallationAddress(uid: number): any;

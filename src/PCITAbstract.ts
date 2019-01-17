@@ -1,4 +1,4 @@
-export class PCIT {
+export default abstract class PCITAbstract {
   constructor(
     readonly token: string = '',
     readonly entrypoint: string = 'https://ci.khs1994.com/api',

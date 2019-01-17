@@ -1,3 +1,3 @@
-import { PCIT } from '../PCIT';
+import PCITAbstract from '../PCITAbstract';
 
-export class Status extends PCIT {}
+export default class Status extends PCITAbstract {}

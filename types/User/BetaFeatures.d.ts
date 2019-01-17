@@ -1,4 +1,4 @@
-import { PCIT } from '../PCIT';
-export declare class BetaFeatures extends PCIT {
+import PCITAbstract from '../PCITAbstract';
+export default class BetaFeatures extends PCITAbstract {
     update(): void;
 }

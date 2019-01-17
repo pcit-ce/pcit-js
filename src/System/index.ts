@@ -1,7 +1,7 @@
-import { PCIT } from '../PCIT';
-import { Request } from '../Client/Request';
+import PCITAbstract from '../PCITAbstract';
+import Request from '../Client/Request';
 
-export class System extends PCIT {
+export default class System extends PCITAbstract {
   getOauthClientId() {
     return Request.request(
       this.entrypoint + '/ci/oauth_client_id',

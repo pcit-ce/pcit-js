@@ -1,6 +1,6 @@
-import { PCIT } from '../PCIT';
-import { BetaFeatures } from './BetaFeatures';
-export declare class User extends PCIT {
+import PCITAbstract from '../PCITAbstract';
+import BetaFeatures from './BetaFeatures';
+export default class User extends PCITAbstract {
     readonly betaFeatures: BetaFeatures;
     getToken(git_type: string, username: string, password: string): any;
     current(): any;

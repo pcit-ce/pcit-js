@@ -29,7 +29,7 @@
   },
   "scripts": {
     "cleanup": "npx rimraf lib dist types",
-    "pretest": "npm run cleanup ; npx tsc",
+    "pretest": "npm run cleanup && npx tsc",
     "test": "mocha -r ts-node/register ./test/**/*.ts",
     "prettier": "npx prettier --write ./**/*.ts ./*.md",
     "eslint": "npx eslint --fix ./**/*.ts",
@@ -46,7 +46,6 @@
   },
   "files": [
     "lib",
-    "src",
     ".pcit.yml",
     "dist",
     "types"

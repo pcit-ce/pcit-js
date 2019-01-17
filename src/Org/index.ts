@@ -1,7 +1,7 @@
-import { PCIT } from '../PCIT';
-import { Request } from '../Client/Request';
+import PCITAbstract from '../PCITAbstract';
+import Request from '../Client/Request';
 
-export class Org extends PCIT {
+export default class Org extends PCITAbstract {
   list() {
     return Request.request(this.entrypoint + '/orgs', 'get', this.token);
   }

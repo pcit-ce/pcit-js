@@ -1,4 +1,4 @@
-export declare class PCIT {
+export default abstract class PCITAbstract {
     readonly token: string;
     readonly entrypoint: string;
     constructor(token?: string, entrypoint?: string);

@@ -1,16 +1,16 @@
-import { PCIT } from '../PCIT';
-import { Request } from '../Client/Request';
-import { Branches } from './Branches';
-import { Caches } from './Caches';
-import { Crons } from './Crons';
-import { Env } from './Env';
-import { Issues } from './Issues';
-import { Requests } from './Requests';
-import { Settings } from './Settings';
-import { Star } from './Star';
-import { Status } from './Status';
+import PCITAbstract from '../PCITAbstract';
+import Request from '../Client/Request';
+import Branches from './Branches';
+import Caches from './Caches';
+import Crons from './Crons';
+import Env from './Env';
+import Issues from './Issues';
+import Requests from './Requests';
+import Settings from './Settings';
+import Star from './Star';
+import Status from './Status';
 
-export class Repo extends PCIT {
+export default class Repo extends PCITAbstract {
   list() {
     return Request.request(this.entrypoint + '/repos', 'get', this.token);
   }

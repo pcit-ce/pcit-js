@@ -1,8 +1,8 @@
-import { PCIT } from '../PCIT';
-import { BetaFeatures } from './BetaFeatures';
-import { Request } from '../Client/Request';
+import PCITAbstract from '../PCITAbstract';
+import BetaFeatures from './BetaFeatures';
+import Request from '../Client/Request';
 
-export class User extends PCIT {
+export default class User extends PCITAbstract {
   get betaFeatures() {
     return new BetaFeatures(this.token, this.entrypoint);
   }
