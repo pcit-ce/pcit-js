@@ -30,7 +30,7 @@
   "scripts": {
     "cleanup": "npx rimraf lib dist types",
     "pretest": "npm run cleanup && npx tsc",
-    "test": "mocha -r ts-node/register ./test/**/*.ts",
+    "test": "mocha -r ts-node/register --timeout 10000 ./test/**/*.ts",
     "prettier": "npx prettier --write ./**/*.ts ./*.md",
     "eslint": "npx eslint --fix ./**/*.ts",
     "prepublishOnly": "npm run webpack-pro && npx tsc",
