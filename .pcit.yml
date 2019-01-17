@@ -14,6 +14,15 @@ pipeline:
       - npm test
       - npx tsc
 
+  version_daily:
+    commands:
+      - npm --no-git-tag-version version prerelease --preid=dev.$(date +"%Y%m%d")
+    when:
+      event: ['push']
+      status: success
+      matrix:
+        - NODE_VERSION: 11
+
   deploy_next:
     # environment:
     settings:
@@ -22,7 +31,6 @@ pipeline:
       email: khs1994@khs1994.com
       tag: next
       # registry:
-    email: khs1994@khs1994.com
     when:
       event: ['push']
       status: success
@@ -30,12 +38,10 @@ pipeline:
         - NODE_VERSION: 11
 
   deploy:
-    # environment:
     settings:
       provider: npm
       api_key: ${NPM_TOKEN}
       email: khs1994@khs1994.com
-    email: khs1994@khs1994.com
     when:
       event: ['tag']
       status: success
