@@ -27,10 +27,15 @@ pipeline:
     # environment:
     settings:
       provider: npm
-      api_key: ${NPM_TOKEN}
+      # username: yourusername
+      # password: yourpassword
       email: khs1994@khs1994.com
+      api_key: ${NPM_TOKEN}
       tag: next
-      # registry:
+      # registry: https://registry.npmjs.org
+      # skip_verify: false
+      # fail_on_version_conflict: false
+      # access: public # public | restricted
     when:
       event: ['push']
       status: success
@@ -42,6 +47,7 @@ pipeline:
       provider: npm
       api_key: ${NPM_TOKEN}
       email: khs1994@khs1994.com
+      fail_on_version_conflict: true
     when:
       event: ['tag']
       status: success
