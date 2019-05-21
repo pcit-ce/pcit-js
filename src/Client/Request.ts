@@ -12,7 +12,7 @@ export default class Request {
       if (typeof fetch === 'function') {
         request = fetch;
       } else {
-        throw Error('not support fetch');
+        throw new Error('not support fetch');
       }
     } catch (e) {
       try {
@@ -21,7 +21,7 @@ export default class Request {
         if (typeof fetch === 'function') {
           request = fetch;
         } else {
-          throw Error('is not node env');
+          throw new Error('is not node env');
         }
       } catch (e) {
         let fetch = require('wx-fetch');

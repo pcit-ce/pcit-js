@@ -8,7 +8,7 @@ export default class User extends PCITAbstract {
   }
 
   getToken(git_type: string, username: string, password: string) {
-    return Request.request(this.entrypoint + `/user/token`, 'post', undefined, {
+    return Request.request(this.entrypoint + '/user/token', 'post', undefined, {
       git_type,
       username,
       password,

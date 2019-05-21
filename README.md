@@ -67,7 +67,7 @@ or
 const TOKEN = process.env.NODE_PCIT_TOKEN || 'xxx';
 
 // get pcit class
-const PCIT = require('@pcit/pcit-js').PCIT;
+const { PCIT } = require('@pcit/pcit-js');
 
 // get pcit instance
 const pcit = new PCIT(TOKEN, 'https://ci.domain.com/api');

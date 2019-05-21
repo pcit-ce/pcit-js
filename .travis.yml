@@ -12,8 +12,8 @@ deploy:
   api_key: $NPM_TOKEN
   on:
     tags: true
-    node: 11
+    node: 12
 
 node_js:
-  - 11
+  - 12
   - 10

@@ -2,6 +2,10 @@
 
 /dist
 /lib
+/libesm
+
 node_modules
+
+/test/*.js
 
 package-lock.json

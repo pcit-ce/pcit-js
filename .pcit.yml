@@ -12,7 +12,8 @@ pipeline:
     image: node:${NODE_VERSION}-alpine
     commands:
       - npm test
-      - npx tsc
+
+  after_success: npm run prepublishOnly
 
   version_daily:
     commands:
@@ -21,7 +22,7 @@ pipeline:
       event: ['push']
       status: success
       matrix:
-        - NODE_VERSION: 11
+        - NODE_VERSION: 12
 
   deploy_next:
     # environment:
@@ -40,7 +41,7 @@ pipeline:
       event: ['push']
       status: success
       matrix:
-        - NODE_VERSION: 11
+        - NODE_VERSION: 12
 
   deploy:
     settings:
@@ -52,9 +53,9 @@ pipeline:
       event: ['tag']
       status: success
       matrix:
-        - NODE_VERSION: 11
+        - NODE_VERSION: 12
 
 matrix:
   NODE_VERSION:
-    - 11
+    - 12
     - 10

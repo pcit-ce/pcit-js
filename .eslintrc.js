@@ -1,11 +1,12 @@
 module.exports = {
+  root: true,
   env: {
     node: true,
     es6: true,
     mocha: true,
   },
   extends: ['eslint:recommended', 'plugin:prettier/recommended'],
-  parser: 'babel-eslint',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 9,
     impliedStrict: true,
@@ -31,4 +32,5 @@ module.exports = {
     strict: 2,
     'prettier/prettier': ['error', { trailingComma: 'all' }],
   },
+  overrides:[]
 };

@@ -2,52 +2,59 @@
   "name": "@pcit/pcit-js",
   "version": "18.12.0-rc.2",
   "description": "PCIT JS SDK",
-  "main": "./lib/index.js",
+  "main": "./dist/pcit.common.js",
+  "module": "./dist/pcit.esm.js",
   "types": "./types/index.d.ts",
   "keywords": [
     "pcit",
     "pcit-ce"
   ],
   "dependencies": {
-    "node-fetch": "^2.3.0",
+    "node-fetch": "^2.6.0",
     "wx-fetch": "github:khs1994/wx-fetch"
   },
   "devDependencies": {
-    "@types/mocha": "^5.2.5",
-    "@types/node": "^10.12.18",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.12.0",
-    "eslint-config-prettier": "^3.5.0",
-    "eslint-plugin-prettier": "^3.0.1",
-    "mocha": "^5.2.0",
-    "prettier": "^1.15.3",
-    "ts-loader": "^5.3.3",
-    "ts-node": "^7.0.1",
-    "typescript": "^3.2.4",
-    "webpack": "^4.28.4",
-    "webpack-cli": "^3.2.1"
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^12.0.0",
+    "@typescript-eslint/parser": "^1.9.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "mocha": "^6.1.4",
+    "prettier": "^1.17.1",
+    "rollup": "~1.6.0",
+    "rollup-plugin-commonjs": "^9.0.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-terser": "^4.0.4",
+    "rollup-plugin-typescript": "^1.0.1",
+    "ts-loader": "^6.0.1",
+    "ts-node": "^8.0.1",
+    "typescript": "^3.4.5"
   },
   "scripts": {
-    "cleanup": "npx rimraf lib dist types",
-    "pretest": "npm run cleanup && npx tsc",
+    "cleanup": "npx rimraf lib libesm dist types",
+    "pretest": "npm run cleanup && npm run build:cjs",
     "test": "mocha -r ts-node/register --timeout 10000 ./test/**/*.ts",
-    "prettier": "npx prettier --write ./**/*.ts ./*.md",
+    "fmt": "npx prettier --write ./**/*.ts ./*.md",
     "eslint": "npx eslint --fix ./**/*.ts",
-    "prepublishOnly": "npm run webpack-pro && npx tsc",
-    "dev-build": "tsc --outDir ../pcit/frontend/node_modules/@pcit/pcit-js/lib",
-    "dev-miniprogram": "tsc --outDir ../pcit/miniprogram/client/node_modules/@pcit/pcit-js/lib",
-    "prewebpack-pro": "npm run cleanup",
-    "prewebpack-dev": "npm run cleanup",
-    "webpack-pro": "npx webpack-cli --mode=production",
-    "webpack-dev": "npx webpack-cli --mode=development"
+    "build:all": "npm run build:cjs && npm run build:esm",
+    "build:cjs": "npx tsc",
+    "build:esm": "npx tsc -m es6 --outDir libesm",
+    "dist:all": "npx rimraf dist && npm run dist:umd && npm run dist:umd:min && npm run dist:cjs && npm run dist:esm",
+    "dist:umd": "npx rollup -c rollup.config.js --environment=target:umd",
+    "dist:umd:min": "npx rollup -c rollup.config.js",
+    "dist:cjs": "npx rollup -c rollup.config.js --environment=target:cjs",
+    "dist:esm": "npx rollup -c rollup.config.js --environment=target:esm",
+    "prepublishOnly": "npm run cleanup && npm run build:all && npm run dist:all",
+    "dev:build": "tsc --outDir ../pcit/frontend/node_modules/@pcit/pcit-js/lib && tsc -m es2015 --outDir ../pcit/frontend/node_modules/@pcit/pcit-js/libesm",
+    "dev:miniprogram": "tsc --outDir ../pcit/miniprogram/client/node_modules/@pcit/pcit-js/lib"
   },
   "directories": {
     "lib": "./lib"
   },
   "files": [
-    "lib",
-    ".pcit.yml",
     "dist",
+    ".pcit.yml",
     "types"
   ],
   "author": {
@@ -71,5 +78,6 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
-  }
+  },
+  "unpkg": "dist/pcit.min.js"
 }

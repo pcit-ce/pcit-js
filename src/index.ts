@@ -6,7 +6,7 @@ import Repo from './Repo/index';
 import System from './System/index';
 import User from './User/index';
 
-class PCIT {
+export default class PCIT {
   public builds: Builds;
   public jobs: Jobs;
   public log: Log;
@@ -32,7 +32,5 @@ class PCIT {
     this.org = new Org(token, entrypoint);
   }
 }
-
-export default PCIT;
 
 export { Builds, Jobs, Log, Repo, System, User, Org, PCIT };

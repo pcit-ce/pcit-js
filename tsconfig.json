@@ -11,7 +11,7 @@
     "rootDir": "./src",
     "newLine": "LF",
     "lib": [
-      "es7",
+      "esNext",
       "dom"
     ],
     "types": [
