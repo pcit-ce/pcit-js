@@ -15,7 +15,7 @@ PCIT-JS SDK 支持在浏览器、Node.js、微信小程序端运行。
 // https://ci.domain.com/demo.html
 
 <script src="https://lib.baomitu.com/js-cookie/2.2.0/js.cookie.min.js"></script>
-<script src="https://unpkg.com/@pcit/pcit-js@18.12.0-beta.6/dist/pcit.min.js"></script>
+<script src="https://unpkg.com/@pcit/pcit-js@18.12.0-rc.2/dist/pcit.min.js"></script>
 
 <script>
   // get token from cookie
@@ -67,7 +67,7 @@ or
 const TOKEN = process.env.NODE_PCIT_TOKEN || 'xxx';
 
 // get pcit class
-const { PCIT } = require('@pcit/pcit-js');
+const PCIT = require('@pcit/pcit-js');
 
 // get pcit instance
 const pcit = new PCIT(TOKEN, 'https://ci.domain.com/api');
@@ -105,16 +105,16 @@ const pcit_builds = pcit.builds;
 })();
 ```
 
-## dev
+## Dev
 
 ### PCIT 开发环境
 
 ```bash
-$ npm run dev-build
+$ npm run dev:build
 ```
 
 ### PCIT 小程序开发环境
 
 ```bash
-$ npm run dev-miniprogram
+$ npm run dev:miniprogram
 ```
