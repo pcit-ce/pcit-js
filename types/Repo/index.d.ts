@@ -14,13 +14,13 @@ export default class Repo extends PCITAbstract {
     find(git_type: string, username: string, repo_name?: string): any;
     active(username: string, repo_name: string): any;
     deactivate(username: string, repo_name: string): any;
-    readonly branches: Branches;
-    readonly caches: Caches;
-    readonly crons: Crons;
-    readonly env: Env;
-    readonly issues: Issues;
-    readonly requests: Requests;
-    readonly settings: Settings;
-    readonly star: Star;
-    readonly status: Status;
+    get branches(): Branches;
+    get caches(): Caches;
+    get crons(): Crons;
+    get env(): Env;
+    get issues(): Issues;
+    get requests(): Requests;
+    get settings(): Settings;
+    get star(): Star;
+    get status(): Status;
 }

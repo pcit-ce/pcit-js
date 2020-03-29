@@ -1,33 +1,32 @@
 language: node_js
 
-pipeline:
+steps:
 
   install:
     image: khs1994/node:git
-    command:
+    run:
       - npm config set cache /tmp/pcit_cache/npm
       - npm install --registry=https://registry.npm.taobao.org
 
   script:
     image: node:${NODE_VERSION}-alpine
-    commands:
+    run:
       - npm test
 
   after_success: npm run prepublishOnly
 
   version_daily:
-    commands:
+    run:
       - npm --no-git-tag-version version prerelease --preid=dev.$(date +"%Y%m%d")
-    when:
+    if:
       event: ['push']
       status: success
-      matrix:
-        - NODE_VERSION: 12
+      jobs:
+        - NODE_VERSION: "13"
 
   deploy_next:
-    # environment:
-    settings:
-      provider: npm
+    image: pcit/npm
+    with:
       # username: yourusername
       # password: yourpassword
       email: khs1994@khs1994.com
@@ -37,25 +36,24 @@ pipeline:
       # skip_verify: false
       # fail_on_version_conflict: false
       # access: public # public | restricted
-    when:
+    if:
       event: ['push']
       status: success
-      matrix:
-        - NODE_VERSION: 12
+      jobs:
+        - NODE_VERSION: "13"
 
   deploy:
-    settings:
-      provider: npm
+    image: pcit/npm
+    with:
       api_key: ${NPM_TOKEN}
       email: khs1994@khs1994.com
       fail_on_version_conflict: true
-    when:
+    if:
       event: ['tag']
       status: success
-      matrix:
-        - NODE_VERSION: 12
+      jobs:
+        - NODE_VERSION: "13"
 
-matrix:
+jobs:
   NODE_VERSION:
-    - 12
-    - 10
+    - "13"

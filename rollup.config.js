@@ -1,7 +1,7 @@
-import typescript from 'rollup-plugin-typescript';
+import typescript from '@rollup/plugin-typescript';
+import commonjs from '@rollup/plugin-commonjs';
+import nodeResolve from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
-import commonjs from 'rollup-plugin-commonjs';
-import nodeResolve from 'rollup-plugin-node-resolve';
 import tweakDefault from './build/rollup-plugin.js';
 
 let production = (process.env.target || 'min') === 'min';
@@ -54,7 +54,10 @@ let config = {
   },
   plugins: [
     tweakDefault(),
-    typescript(),
+    typescript({
+      tsconfig: false,
+      lib: ["esnext", "dom"], target: "es6"
+    }),
     production && terser(),
     nodeResolve({
       mainFields: ['module', 'main'],

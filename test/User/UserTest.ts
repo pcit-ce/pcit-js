@@ -2,7 +2,7 @@ import pcit from '../PCITTest';
 
 const user = pcit.user;
 
-describe('User', function() {
+describe('User', function () {
   this.timeout(0);
 
   it.skip('getToken', async () => {
