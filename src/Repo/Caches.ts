@@ -11,9 +11,10 @@ export default class Caches extends PCITAbstract {
     );
   }
 
-  delete(username: string, repo_name?: string) {
+  delete(username: string, repo_name?: string, branch: string | null = null) {
     return Request.request(
-      this.entrypoint + `/repo/${username}/${repo_name}/caches`,
+      this.entrypoint +
+        `/repo/${username}/${repo_name}/caches${branch ? '/' + branch : null}`,
       'delete',
       this.token,
     );

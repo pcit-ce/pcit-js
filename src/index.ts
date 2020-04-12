@@ -5,6 +5,7 @@ import Org from './Org/index';
 import Repo from './Repo/index';
 import System from './System/index';
 import User from './User/index';
+import Artifacts from './Artifacts/index';
 
 export default class PCIT {
   public builds: Builds;
@@ -14,6 +15,7 @@ export default class PCIT {
   public system: System;
   public user: User;
   public org: Org;
+  public artifacts: Artifacts;
 
   constructor(
     token: string = '',
@@ -30,7 +32,8 @@ export default class PCIT {
     this.system = new System(token, entrypoint);
     this.user = new User(token, entrypoint);
     this.org = new Org(token, entrypoint);
+    this.artifacts = new Artifacts(token, entrypoint);
   }
 }
 
-export { Builds, Jobs, Log, Repo, System, User, Org, PCIT };
+export { Builds, Jobs, Log, Repo, System, User, Org, Artifacts, PCIT };

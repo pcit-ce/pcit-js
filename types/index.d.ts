@@ -5,6 +5,7 @@ import Org from './Org/index';
 import Repo from './Repo/index';
 import System from './System/index';
 import User from './User/index';
+import Artifacts from './Artifacts/index';
 export default class PCIT {
     builds: Builds;
     jobs: Jobs;
@@ -13,6 +14,7 @@ export default class PCIT {
     system: System;
     user: User;
     org: Org;
+    artifacts: Artifacts;
     constructor(token?: string, entrypoint?: string);
 }
-export { Builds, Jobs, Log, Repo, System, User, Org, PCIT };
+export { Builds, Jobs, Log, Repo, System, User, Org, Artifacts, PCIT };
